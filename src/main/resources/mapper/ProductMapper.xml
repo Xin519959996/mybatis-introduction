@@ -1,0 +1,18 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.products.dao.mapper.ProductMapper">
+
+    <resultMap id="BaseResultMap" type="com.oak.mall.products.entity.Product">
+        <id column="product_id" jdbcType="INTEGER" property="productId"/>
+        <id column="product_name" jdbcType="VARCHAR" property="productName"/>
+        <id column="product_price" jdbcType="DECIMAL" property="productPrice"/>
+    </resultMap>
+
+
+    <select id="findByProductId" parameterType="java.lang.Integer" resultType="com.oak.mall.products.entity.Product" resultMap="BaseResultMap">
+        SELECT * FROM system_product where product_id = #{product_id,jdbcType=INTEGER}
+    </select>
+
+</mapper>
